@@ -68,7 +68,7 @@ class Register extends Component {
 							onChange={this.handleInputChange}
 							/>
 					</div>
-					<button type="submit" className="btn btn-primary">Submit</button>
+					<button type="submit" className="btn btn-primary">가입</button>
 				</Form>
 			</div>
 		);
