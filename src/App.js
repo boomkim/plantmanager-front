@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Register from './pages/Register'
+
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -35,6 +37,7 @@ class App extends Component {
         <div>
           <p>hello react</p>
           <p>server health: {isBackendHealthy ? "Healthy!" : "Nope!" }</p>
+          <Register/>
         </div>
     );
   }
