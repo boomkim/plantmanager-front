@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Form from 'react-bootstrap/Form';
 
-class Register extends Component {
+class Signup extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -108,8 +108,4 @@ class Register extends Component {
 	}
 }
 
-Register.propTypes = {
-
-};
-
-export default Register;
+export default Signup;
