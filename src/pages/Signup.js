@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
 
 class Signup extends Component {
 	constructor(props) {

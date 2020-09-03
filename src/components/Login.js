@@ -14,9 +14,6 @@ function Login(props) {
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
 
-  console.log(props);
-  const referer = props.location.state ? props.location.state.referer : '/';
-
   const data = { email, password }
 
   function postLogin() {
@@ -35,12 +32,13 @@ function Login(props) {
       setIsError(true);
     });
   }
-  if(isLoggedIn) {
-    return <Redirect to={referer} />
+  const style2 = {
+    width: "400px"
   }
-
+  
   return (
-    <div>
+    <Card>
+      <div className="card-body text-center">
       <Form>
         <div className="form-group">
         <input 
@@ -60,12 +58,14 @@ function Login(props) {
           onChange={ e => setPassword(e.target.value) }
           />
           </div>
-        <Button onClick={postLogin} className="btn-block">Sign In</Button>
-        
+        <Button onClick={postLogin} className="btn-block">로그인</Button>
       </Form>
-      <Link to="/signup">Don't have an account?</Link>
+      <p><Link to="/signup" >계정을 잊으셨나요?</Link></p>
       { isError &&<div className="alert alert-warning">The username or password provided were incorrect!</div> }
-    </div>
+      <hr/>
+      <Button className="btn btn-success">새 계정 만들기</Button>
+      </div>
+    </Card>
   );
 }
 
