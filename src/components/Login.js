@@ -21,13 +21,11 @@ function Login(props) {
       method: "POST",
       headers: { "Content-Type": "application/json"},
       body: JSON.stringify(data)
-    }).then(res => {
-      if (res.status === 200) {
-        setAuthTokens(res.data)
-        setLoggedIn(true);
-      } else {
-        setIsError(true);
-      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      setAuthTokens(data.token)
+      setLoggedIn(true);
     }).catch( e => {
       setIsError(true);
     });

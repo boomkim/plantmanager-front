@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Welcome from './pages/Welcome';
 
 function App(props) {
-  const existingTokens = JSON.parse(localStorage.getItem("tokens"));
+  const existingTokens = localStorage.getItem("tokens");
   const [authTokens, setAuthTokens] = useState(existingTokens);
 
   const setTokens = (data) => {

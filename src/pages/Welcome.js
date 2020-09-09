@@ -19,8 +19,6 @@ function Welcome(props) {
         </div>
       </div>
     </Container>
-    
-    
   );
 }
 
