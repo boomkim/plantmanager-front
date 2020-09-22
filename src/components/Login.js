@@ -30,9 +30,6 @@ function Login(props) {
       setIsError(true);
     });
   }
-  const style2 = {
-    width: "400px"
-  }
   
   return (
     <Card>

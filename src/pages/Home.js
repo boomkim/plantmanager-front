@@ -2,9 +2,19 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { Link, Route, Switch } from "react-router-dom";
-import MyPlants from "./MyPlants"
+import MyPlants from "./MyPlants";
+import MyProfile from "./MyProfile";
+import { useAuth } from "../context/auth";
 
 function Home(props) {
+
+  const { setAuthTokens } = useAuth();
+
+  function logOut() {
+    localStorage.removeItem("tokens")
+    setAuthTokens();
+  }
+
   return (
     <div>
       <Navbar className="navbar bg-light">
@@ -18,12 +28,13 @@ function Home(props) {
         <Link to="/myplants">내 식물</Link>
         <Link to="/me">내 정보</Link>
         <Link to="/surf">둘러보기</Link>
-        <Link to="/logout">로그아웃</Link>
+        <button onClick={logOut}>로그아웃</button>
       </Container>
       </Navbar>
       <Container>
         <Switch>
           <Route path='/myplants'><MyPlants/></Route>
+          <Route path='/me'><MyProfile/></Route>
           <Route path='/'><div>hello</div></Route>
         </Switch>
       </Container>

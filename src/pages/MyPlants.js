@@ -5,6 +5,7 @@ function MyPlants(props) {
   return (
     <div>
       my plants
+      <hr/>
     </div>
   );
 }

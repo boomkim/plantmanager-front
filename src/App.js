@@ -10,7 +10,7 @@ function App(props) {
   const [authTokens, setAuthTokens] = useState(existingTokens);
 
   const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
+    localStorage.setItem("tokens", data);
     setAuthTokens(data);
   }
 
@@ -24,38 +24,5 @@ function App(props) {
     </AuthContext.Provider>
   );
 }
-
-// class App extends Component {
-
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       backendHealth: false
-//     };
-//   }
-
-//   componentDidMount(){
-//     fetch('/hello')
-//     .then(res => {
-//       console.log(res.status);
-//       if (res.status === 200){
-//         this.setState({
-//           backendHealth: true
-//         });
-//       }
-//     })
-//   }
-//   render() {
-//     const isBackendHealthy = this.state.backendHealth
-//     return (
-//         <div>
-//           <p>hello react</p>
-//           <p>server health: {isBackendHealthy ? "Healthy!" : "Nope!" }</p>
-//           <Register/>
-//         </div>
-//     );
-//   }
-// }
-
 
 export default App;
