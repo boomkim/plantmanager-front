@@ -25,7 +25,7 @@ function MyProfile(props) {
     .catch(err => {
       console.log(err);
     })
-  })
+  },[])
 
   return (
     <div>
