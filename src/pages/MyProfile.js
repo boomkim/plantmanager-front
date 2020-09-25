@@ -21,8 +21,7 @@ function MyProfile(props) {
       setUsername(data.username);
       setEmail(data.email);
       // console.log(data);
-    })
-    .catch(err => {
+    }).catch(err => {
       console.log(err);
     })
   },[])
