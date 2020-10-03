@@ -25,15 +25,21 @@ function MyPlants(props) {
     })
   },[])
 
-  // const plantLists = plants.map((plant) => <li key={plant.plant_id}>{plant.plantname}</li>)
-  // console.log(plants);
   return (
     <div>
       my plants
       <hr/>
-      <ul>
-        {plants.map((plant) => <li key={plant.plant_id}>{plant.plantname}</li>)}
-      </ul>
+      <div className="row">
+        {plants.map((plant) => 
+          <div className="col-4" key={plant.plant_id}>
+            <div className="card">
+              <img src="..." className="card-img-top" alt="..."/>
+              <div className="card-body">
+                <h5 className="card-title">{plant.plantname}</h5>
+              </div>
+            </div>
+          </div>)}
+      </div>
     </div>
   );
 }
