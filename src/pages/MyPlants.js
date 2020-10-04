@@ -1,6 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/auth"
 
+function arrToChunk (arr) {
+  var i,j,temparray,chunk = 3;
+  var t = [];
+  for (i=0,j=arr.length; i<j; i+=chunk) {
+    temparray = arr.slice(i,i+chunk);
+    let cols; 
+    cols= temparray.map((plant) => 
+      (<div className="col-4" key={plant.plant_id}>
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{plant.plantname}</h5>
+          </div>
+        </div>
+      </div>)
+    )
+    t.push(cols);
+  }
+  
+  let ret = t.map((el) => 
+    <div className="row">
+      {el}
+    </div>
+  );
+  return ret;
+}
 
 function MyPlants(props) {
   const [plants, setPlants] = useState([]);
@@ -25,23 +50,28 @@ function MyPlants(props) {
     })
   },[])
 
+  
+
   return (
     <div>
       my plants
       <hr/>
-      <div className="row">
-        {plants.map((plant) => 
-          <div className="col-4" key={plant.plant_id}>
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..."/>
-              <div className="card-body">
-                <h5 className="card-title">{plant.plantname}</h5>
-              </div>
-            </div>
-          </div>)}
-      </div>
+      {arrToChunk(plants)}
     </div>
   );
 }
 
 export default MyPlants;
+
+/*
+plants.map((plant, idx) => {
+  <div className="col-4" key={plant.plant_id}>
+    <div className="card">
+      <img src="..." className="card-img-top" alt="..."/>
+      <div className="card-body">
+        <h5 className="card-title">{plant.plantname}</h5>
+      </div>
+    </div>
+  </div>
+})
+*/
