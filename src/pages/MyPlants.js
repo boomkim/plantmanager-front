@@ -7,7 +7,7 @@ function arrToChunk (arr) {
   for (i=0,j=arr.length; i<j; i+=chunk) {
     temparray = arr.slice(i,i+chunk);
     let cols; 
-    cols= temparray.map((plant) => 
+    cols = temparray.map((plant) => 
       (<div className="col-4" key={plant.plant_id}>
         <div className="card">
           <div className="card-body">
