@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/auth"
+import { Route, Link, Switch } from "react-router-dom";
+import NewPlantForm from '../components/NewPlantForm';
 
 function arrToChunk (arr) {
   var i,j,temparray,chunk = 3;
@@ -55,8 +57,25 @@ function MyPlants(props) {
   return (
     <div>
       my plants
+      <ul>
+        <li>
+          <Link to="/myplants">내 식물</Link>
+        </li>
+        <li>
+          <Link to="/myplants/new">새 식물</Link>
+        </li>
+      </ul>
       <hr/>
-      {arrToChunk(plants)}
+      <Switch>
+        <Route path="/myplants/new">
+          <div>
+            <NewPlantForm/>
+          </div>
+        </Route>
+        <Route path="/myplants">
+          {arrToChunk(plants)}
+        </Route>
+      </Switch>
     </div>
   );
 }
