@@ -6,6 +6,7 @@ function Plant(props) {
     let { plantId } = useParams();
     const [plant, setPlant] = useState({});
     const { authTokens } = useAuth();
+    const image_server = "https://plant-manager.s3.ap-northeast-2.amazonaws.com/"
     
     useEffect(() => {
       const authString = "Bearer " + authTokens;
@@ -25,7 +26,13 @@ function Plant(props) {
   
     return (
       <div>
-        <p>{plant.plantname}</p>
+        <section className="jumbotron text-center">
+          <p>
+          <img className="rounded-circle" src={image_server + plant.photo_url} width="300px"/>
+            </p>
+          <h1>{plant.plantname}</h1>
+        </section>
+        <p></p>
         <p>안녕</p>
       </div>);
 }
