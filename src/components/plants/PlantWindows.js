@@ -2,6 +2,33 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import { Link } from "react-router-dom";
 
+function Deleter (props) {
+  let _id = props._id;
+  const { authTokens } = useAuth();
+  const authString = "Bearer " + authTokens;
+  
+  function handleClick(e) {// call delete api
+    // fetch()
+    if(window.confirm("이 식물을 지우시겠습니까?")){
+      console.log("ㅜㅜ");
+      fetch("/users/plants/" + _id,{
+        method: "DELETE",
+        headers: {
+          "Authorization": authString
+        }
+      }).then( res => {
+        console.log(res.status)
+        alert("삭제 성공");
+        window.location.href = "/myplants";
+      });
+    } else {
+      console.log("헤헤 그럴줄 알았어.");
+    }
+  }
+
+  return <button className="btn btn-sm btn-outline-secondary" onClick={handleClick}>삭제</button>
+}
+
 function arrToChunk (arr) {
   var i,j,temparray,chunk = 3;
   var t = [];
@@ -18,6 +45,7 @@ function arrToChunk (arr) {
               <Link to={'/myplants/' + plant._id}>{plant.plantname}</Link>
               <p>{plant._id}</p>
             </h5>
+            <Deleter _id={plant._id}/>
           </div>
         </div>
       </div>)
