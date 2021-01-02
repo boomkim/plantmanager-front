@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import { useParams } from "react-router-dom";
+import Water from "./Water";
 
 function Plant(props) {
     let { plantId } = useParams();
@@ -32,8 +33,9 @@ function Plant(props) {
             </p>
           <h1>{plant.plantname}</h1>
         </section>
-        <p></p>
-        <p>안녕</p>
+        <hr/>
+        <h2>언제 물줬지?</h2>
+        <Water/>
       </div>);
 }
 
