@@ -23,8 +23,20 @@ function Plant(props) {
         console.log(plant);
       })
     }, [])
-  
-  
+
+    /*waterToday(()=> {
+      let data = { waterDate: new Date()}
+      const authString = "Bearer " + authTokens;
+      fetch('/users/plants/'+ plantId +'/water', {
+        method: "POST",
+        headers: {
+          "Authorization": authString
+        },
+        body: JSON.stringify(data)
+      }).then(data => {
+        console.log(data);
+      })
+    })*/
     return (
       <div>
         <section className="jumbotron text-center">
@@ -35,7 +47,22 @@ function Plant(props) {
         </section>
         <hr/>
         <h2>언제 물줬지?</h2>
-        <Water/>
+        <Water waters={plant.water}/>
+        <button onClick={()=> {
+          let today = new Date()
+          let data = { waterDate: today.toString()}
+          console.log(data);
+          const authString = "Bearer " + authTokens;
+          fetch('/users/plants/'+ plantId +'/water', {
+            method: "POST",
+            headers: { 
+              "Content-Type": "application/json",
+              "Authorization": authString },
+            body: JSON.stringify(data)
+          }).then(data => {
+            console.log(data);
+          })
+    }}>오늘 물줬어요</button>
       </div>);
 }
 

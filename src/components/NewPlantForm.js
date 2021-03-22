@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import { AuthContext } from "../context/auth";
 
-/*
-function getSignedRequest(file) {
-  return fetch('/api/signedurl?filename=${file.name}&filetype=${file.type}',)
-}
-*/
-
 function PreviewImage(props) {
   if(props.image_url === '') {
     return (

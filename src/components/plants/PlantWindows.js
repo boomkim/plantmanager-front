@@ -53,8 +53,8 @@ function arrToChunk (arr) {
     t.push(cols);
   }
   
-  let ret = t.map((el) => 
-    <div className="row">
+  let ret = t.map((el,i) => 
+    <div className="row" key={i}>
       {el}
     </div>
   );
